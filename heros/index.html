@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script>document.write('<base href="' + document.location + '" />');</script>
+    <title>Angular 2 Tour of Heroes</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles.css">
+
+    <!-- IE required polyfills, in this exact order -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.0/es6-shim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system-polyfills.js"></script>
+    <script src="https://npmcdn.com/angular2@2.0.0-beta.15/es6/dev/src/testing/shims_for_IE.js"></script>
+    <!--包含了zone和reflect-metadata-->
+    <!--zone告诉angular2何时更新视图？还记的ng1的脏检查以及$apply吧，zone就是用来取代这些恶心的东西的！-->
+    <!--reflect-metadata也是为了使用 ES7风格的装饰器准备的，就像@Component 和 @View 。这在ng2里面重度使用！-->
+    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2-polyfills.js"></script>
+    <!--这三个文件分别用于模块系统、ts编译、响应式编程（增强处理异步的能力）-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.26/system.js"></script>
+    <script src="https://npmcdn.com/typescript@1.8.10/lib/typescript.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.15/Rx.js"></script>
+    <!--ng2的库文件-->
+    <script src="https://code.angularjs.org/2.0.0-beta.15/angular2.dev.js"></script>
+    <script src="https://code.angularjs.org/2.0.0-beta.15/router.dev.js"></script>
+    <script>
+        System.config({
+            transpiler:'typescript',
+            typescriptOptions:{emitDecoratorMetadata: true},
+            packages:{'app': {defaultExtension: 'ts'}}
+        });
+        System.import('app/main')
+                .then(null,console.error.bind(console));
+    </script>
+</head>
+<body>
+<my-app>Loading~~~~~~~~~~~~~~~~~~</my-app>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,77 @@
+/**
+ * Created by sunjiaqi on 16-4-21.
+ */
+import {Component} from 'angular2/core';
+import {RouteConfig, ROUTER_DIERCTIVES} from 'angular2/router';
+import {HeroesComponent} from './heroes.component';
+import {DashboardComponent} from './dashboard.component';
+import {HeroService} from './hero.service';
+import {HeroDetailComponent} from "./hero-detail.component";
+
+@Component({
+    selector:'my-app',
+    template:`
+      <h1>{{title}}</h1>
+      <nav>
+        <a [routerLink]="['Dashboard']">dashboard</a>
+        <a [routerLink]="['Heroes']">heroes</a>
+      </nav>
+      <router-outlet></router-outlet>
+    `,
+    styleUrls:['app/app.component.css'],
+    directives:[ROUTER_DIERCTIVES],
+    providers:[HeroService]
+})
+@RouteConfig([
+    {path:'/dashboard', name:'Dashboard',component:DashboardComponent,useAsDefault:true},
+    {path:'/heroes', name:'Heroes',component:HeroesComponent},
+    {path:'/detail/:id', name:'HeroDetail', component:HeroDetailComponent}
+])
+export class AppComponent{
+    title = 'tour of Heroes';
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
