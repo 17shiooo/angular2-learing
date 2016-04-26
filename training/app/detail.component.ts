@@ -1,7 +1,7 @@
 /**
  * Created by sunjiaqi on 16-4-25.
  */
-import {Component,Input,OnInit} from 'angular2/core';
+import {Component,Input,OnInit, ViewChild} from 'angular2/core';
 import {RouteParams} from 'angular2/router';
 import {Topic} from './topic';
 import {TopicService} from './topic.service';
@@ -39,29 +39,26 @@ import {TopicService} from './topic.service';
                 </li>
             </ul>
             <footer>
-                <input type="text" id="inp" class="inp" [(ngModel)]="lastReview">
+                <input #lastReview type="text" id="inp" class="inp">
                 <button type="button" class="btn" (click)="add()">评论</button>
             </footer>
         </section>
 `
 })
 export class Detail{
+    @ViewChild('lastReview') inputA;
     topic:Topic;
-    lastReview: string = '';
+    //lastReview: string = '';
     constructor(private _topicService:TopicService,private _routeParams:RouteParams){
         let id = this._routeParams.get('id');
-        this.topic = _topicService.getTopic(id);
+        this.topic = _topicService.getTopic(parseInt(id));
         this.reviews = this.topic.reviews || [];
     }
     add(){
-        // var inp =document.getElementById('inp');
-        // var ul = document.getElementById('ul1')
-        // var li = document.createElement('li');
-        // li.innerHTML=inp.value;
-        // ul.appendChild(li);
-        // inp.value='';
-        this.reviews.push(this.lastReview);
-        document.getElementById('inp').value='';
+
+        //console.log(this.inputA.nativeElement.value)
+        this.reviews.push(this.inputA.nativeElement.value);
+        this.inputA.nativeElement.value='';
     }
 }
 
